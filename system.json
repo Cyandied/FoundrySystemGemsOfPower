@@ -1,0 +1,33 @@
+{
+    "id": "gemsofpower",
+    "title": "Gems of Power System",
+    "description": "The system for Gems of Power made for FoundryVTT!",
+    "version": "0.0.1",
+    "compatibility": {
+      "minimum": 10
+    },
+    "authors": [{
+      "name": "Gems of Power system and world made by: Cyandied"
+    }],
+    "esmodules": ["module/gop.mjs"],
+    "styles": ["css/gop.css"],
+    "scripts": [],
+    "packs": [],
+    "languages": [
+      {
+        "lang": "en",
+        "name": "English",
+        "path": "lang/en.json"
+      }
+    ],
+    "template":"template.json",
+    "gridDistance": 1,
+    "gridUnits": "m",
+    "primaryTokenAttribute": "health",
+    "url": "",
+    "manifest": "",
+    "download": "",
+    "license": "LICENSE.txt",
+    "changelog": "CHANGELOG.md"
+  }
+  
