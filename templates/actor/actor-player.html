@@ -1,0 +1,88 @@
+<form>
+    <header class="header">
+        <img class="profileImg" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="300" width="200">
+        <div class="info-fields">
+            <h1>
+                <input name="name" type="text" value="{{actor.name}}" placeholder="name">
+            </h1>
+            <div class="resources">
+                <label for="system.heath.value">Race</label>
+                <div class="resources-content">
+                    <input type="text" name="system.race" value="{{system.race}}" data-type="text">
+                </div>
+
+                <label for="system.heath.value">Class</label>
+                <div class="resources-content">
+                    <input type="text" name="system.class" value="{{system.class}}" data-type="text">
+                </div>
+
+                <label for="system.heath.value">Health</label>
+                <div class="resources-content">
+                    <input type="text" name="system.heath.value" value="{{system.health.value}}" data-type="number">
+                    <span class="resources-devider"> / </span>
+                    <input type="text" name="system.heath.max" value="{{system.health.max}}" data-type="number">
+                </div>
+
+                <label for="system.heath.value">Level</label>
+                <div class="resources-content">
+                    <input type="text" name="system.level.value" value="{{system.level.value}}" data-type="number">
+                </div>
+            </div>
+
+            <h1>Skills</h1>
+
+            <div class="skills">
+                {{#each system.skills as |skill key|}}
+                <label for="system.skills.{{key}}.hasSkill" class="rollable"
+                    data-roll="d20+@skills.{{key}}.mod">{{skill.label}}:</label>
+                <div class="skill">
+                    <input type="checkbox" name="system.skills.{{key}}.hasSkill" value="true" {{#if skill.hasSkill}}
+                        checked {{/if}}>
+                    <span> + {{skill.mod}}</span>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </header>
+
+
+    <body>
+
+        <nav class="sheet-tabs tabs" data-group="primary">
+            <a class="item" data-tab="actionSet">Action set</a>
+            <a class="item" data-tab="spells">Spells</a>
+            <a class="item" data-tab="abilities">Abilities</a>
+            <a class="item" data-tab="items">Items</a>
+            <a class="item" data-tab="biography">Biography</a>
+        </nav>
+
+        <section class="sheet-body">
+
+            <div class="tab actionSet" data-group="primary" data-tab="actionSet">
+                {{> "systems/gemsofpower/templates/actor/parts/actionSet.html"}}
+            </div>
+
+            <div class="tab spells" data-group="primary" data-tab="spells">
+                {{> "systems/gemsofpower/templates/actor/parts/spells.html"}}
+            </div>
+
+            <div class="tab abilities" data-group="primary" data-tab="abilities">
+                {{> "systems/gemsofpower/templates/actor/parts/abilities.html"}}
+            </div>
+
+            <div class="tab items" data-group="primary" data-tab="items">
+                {{> "systems/gemsofpower/templates/actor/parts/items.html"}}
+            </div>
+
+            <div class="tab biography" data-group="primary" data-tab="biography">
+                {{> "systems/gemsofpower/templates/actor/parts/biography.html"}}
+            </div>
+
+        </section>
+
+    </body>
+
+    <footer>
+
+    </footer>
+</form>

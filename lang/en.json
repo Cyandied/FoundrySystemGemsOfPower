@@ -1,0 +1,22 @@
+{
+  "GOP.AbilityStr": "Strength",
+  "GOP.AbilityCon": "Constitution",
+  "GOP.AbilityDex": "Dexterity",
+  "GOP.AbilityInt": "Intelligence",
+  "GOP.AbilityWis": "Wisdom",
+  "GOP.AbilityCha": "Charisma",
+
+  "GOP.AbilityStrAbbr": "str",
+  "GOP.AbilityConAbbr": "con",
+  "GOP.AbilityDexAbbr": "dex",
+  "GOP.AbilityIntAbbr": "int",
+  "GOP.AbilityWisAbbr": "wis",
+  "GOP.AbilityChaAbbr": "cha",
+
+  "GOP.EffectCreate": "Create Effect",
+  "GOP.EffectToggle": "Toggle Effect",
+  "GOP.EffectEdit": "Edit Effect",
+  "GOP.EffectDelete": "Delete Effect",
+
+  "GOP.Add": "Add"
+}
