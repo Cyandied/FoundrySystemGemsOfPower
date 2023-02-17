@@ -1,189 +1,289 @@
 {
-    "Actor":{
-        "types":["player","npc"],
-        "templates":{
-            "base":{
-                "health":{
-                    "value":10,
-                    "min":0,
-                    "max":10
+    "Actor": {
+        "types": [
+            "player",
+            "npc"
+        ],
+        "templates": {
+            "base": {
+                "health": {
+                    "value": 10,
+                    "min": 0,
+                    "max": 10
                 },
-                "level":{
-                    "value":0
+                "level": {
+                    "value": 0
                 }
             },
-            "caster":{
-                "spellsSlots":{
-                    "1":{
-                        "avaible":0
+            "actionSetPlayer": {
+                "relavantActionSet": {
+                    "weapons": {
+                        "primary": [],
+                        "secondary": []
                     },
-                    "2":{
-                        "avaible":0
+                    "items": {
+                        "1": [],
+                        "2": [],
+                        "3": []
                     },
-                    "3":{
-                        "avaible":0
+                    "abilities": {
+                        "1": [],
+                        "2": [],
+                        "3": []
                     },
-                    "4":{
-                        "avaible":0
-                    },
-                    "5":{
-                        "avaible":0
-                    }
-                },
-                "assistedcaster":{
-                    "gems":{
+                    "spells": {
+                        "1": [],
+                        "2": [],
+                        "3": [],
+                        "4": [],
+                        "5": []
                     }
                 }
             },
-            "player":{
+            "actionSetNpc": {
+                "relavantActionSet": {
+                    "actions": {
+                        "1": [],
+                        "2": []
+                    }
+                }
+            },
+            "player": {
                 "race": "",
                 "class": "",
-                "initiativeFromClass":0,
+                "initiativeFromClass": 0,
                 "level": {
-                "value": 1
+                    "value": 1
                 },
                 "skills": {
-                "athletic": {
-                    "multiplier":1,
-                    "hasSkill":false
-                },
-                "charismatic": {
-                    "multiplier":1,
-                    "hasSkill":false
-                },
-                "crafty": {
-                    "multiplier":1,
-                    "hasSkill":false
-                },
-                "dexterous": {
-                    "multiplier":1,
-                    "hasSkill":false
-                },
-                "intelligent": {
-                    "multiplier":1,
-                    "hasSkill":false
-                },
-                "observant": {
-                    "multiplier":1,
-                    "hasSkill":false
-                },
-                "sneaky": {
-                    "multiplier":1,
-                    "hasSkill":false
-                },
-                "strong": {
-                    "multiplier":1,
-                    "hasSkill":false
-                },
-                "survivalist": {
-                    "multiplier":1,
-                    "hasSkill":false
-                }
+                    "athletic": {
+                        "multiplier": 1,
+                        "hasSkill": false
+                    },
+                    "charismatic": {
+                        "multiplier": 1,
+                        "hasSkill": false
+                    },
+                    "crafty": {
+                        "multiplier": 1,
+                        "hasSkill": false
+                    },
+                    "dexterous": {
+                        "multiplier": 1,
+                        "hasSkill": false
+                    },
+                    "intelligent": {
+                        "multiplier": 1,
+                        "hasSkill": false
+                    },
+                    "observant": {
+                        "multiplier": 1,
+                        "hasSkill": false
+                    },
+                    "sneaky": {
+                        "multiplier": 1,
+                        "hasSkill": false
+                    },
+                    "strong": {
+                        "multiplier": 1,
+                        "hasSkill": false
+                    },
+                    "survivalist": {
+                        "multiplier": 1,
+                        "hasSkill": false
+                    }
                 }
             },
-            "biography":{
-                "personality":"",
-                "gender":"",
-                "apperance":"",
-                "background":""
+            "biography": {
+                "personality": "",
+                "gender": "",
+                "apperance": "",
+                "background": ""
             }
         },
-        "player":{
-            "templates":["base","player","biography"]
+        "player": {
+            "templates": [
+                "base",
+                "player",
+                "biography",
+                "actionSetPlayer"
+            ]
         },
-        "npc":{
-            "templates":["base","biography"]
+        "npc": {
+            "templates": [
+                "base",
+                "biography",
+                "actionSetNpc"
+            ]
         }
     },
-    "Item":{
-        "types":["spell","consumable","weapon","gem","tradeGood","effectItem","equipment","ability","class"],
-        "templates":{
-            "base":{
-                "name":"",
-                "itemDescription":"",
-                "value":0,
-                "quantity":0
+    "Item": {
+        "types": [
+            "spell",
+            "consumable",
+            "weapon",
+            "gem",
+            "tradeGood",
+            "effectItem",
+            "equipment",
+            "ability",
+            "class"
+        ],
+        "templates": {
+            "damage": {
+                "damageType": {
+                    "blunt": {
+                        "hasType": false,
+                        "label": "Blunt"
+                    },
+                    "cold": {
+                        "hasType": false,
+                        "label": "Cold"
+                    },
+                    "cutting": {
+                        "hasType": false,
+                        "label": "Cutting"
+                    },
+                    "electricity": {
+                        "hasType": false,
+                        "label": "Electricity"
+                    },
+                    "fire": {
+                        "hasType": false,
+                        "label": "Fire"
+                    },
+                    "noxious": {
+                        "hasType": false,
+                        "label": "Noxious"
+                    },
+                    "wasting": {
+                        "hasType": false,
+                        "label": "Wasting"
+                    },
+                    "permanant health": {
+                        "hasType": false,
+                        "label": "Permanant health"
+                    },
+                    "temporary health": {
+                        "hasType": false,
+                        "label": "Temprary health"
+                    }
+                }
             },
-            "spell":{
-                "name":"",
-                "school":"",
-                "spellDescription":"",
-                "minLevel":0,
-                "ID":0,
-                "effectLevelOver":"",
-                "damageToGem":0
+            "base": {
+                "description": "",
+                "value": 0,
+                "quantity": 0
             },
-            "effect":{
-                "effectDescription":"",
-                "LimitedCharge":false,
-                "charges":0,
-                "castsSpell":false,
-                "spellListID":[],
-                "dice":"",
-                "flatMod":0,
-                "damageType":""
+            "spell": {
+                "name": "",
+                "school": "",
+                "description": "",
+                "minLevel": 0,
+                "ID": 0,
+                "effectLevelOver": "",
+                "damageToGem": 0
             },
-            "gem":{
-                "type":"",
-                "color":"",
-                "castLevelMax":0,
-                "castLevelMin":0,
-                "durability":"",
-                "canCastSchool":"",
-                "spellListID":[]
+            "effect": {
+                "effectDescription": "",
+                "LimitedCharge": false,
+                "charges": 0,
+                "castsSpell": false,
+                "spellListID": [],
+                "formula": ""
             },
-            "weapon":{
-                "dice":"",
-                "flatMod":0,
-                "damageType":"",
-                "isMagical":false,
-                "isCapable":false
+            "gem": {
+                "description": "",
+                "type": "",
+                "color": "",
+                "castLevelMax": 0,
+                "castLevelMin": 0,
+                "durability": "",
+                "canCastSchool": "",
+                "spellListID": []
             },
-            "consumable":{
-                "isFood":false
+            "weapon": {
+                "formula": "",
+                "isMagical": false,
+                "isCapable": false
             },
-            "epuipment":{
-                "isEquipped":false,
-                "isCapable":false,
-                "changeToEvasiveness":0
+            "consumable": {
+                "isFood": false
             },
-            "class":{
-                "name":"",
-                "initiativeMod":0,
-                "level":0,
-                "givesAbilityByLevel":[]
+            "epuipment": {
+                "isEquipped": false,
+                "isCapable": false,
+                "changeToEvasiveness": 0
             },
-            "ability":{
-                "name":""
+            "class": {
+                "description": "",
+                "initiativeMod": 0,
+                "level": 0,
+                "givesAbilityByLevel": []
+            },
+            "ability": {
+                "description": "",
+                "fromClass": ""
             }
-
         },
-        "spell":{
-            "templates":["spell","effect"]
+        "spell": {
+            "templates": [
+                "spell",
+                "effect",
+                "damage"
+            ]
         },
-        "consumable":{
-            "templates":["base","consumable","effect"]
+        "consumable": {
+            "templates": [
+                "base",
+                "consumable",
+                "effect",
+                "damage"
+            ]
         },
-        "weapon":{
-            "templates":["base","weapon","effect"]
+        "weapon": {
+            "templates": [
+                "base",
+                "weapon",
+                "effect",
+                "damage"
+            ]
         },
-        "gem":{
-            "templates":["gem"]
+        "gem": {
+            "templates": [
+                "gem"
+            ]
         },
-        "tradeGood":{
-            "templates":["base"]
+        "tradeGood": {
+            "templates": [
+                "base"
+            ]
         },
-        "effectItem":{
-            "templates":["base","effect"]
+        "effectItem": {
+            "templates": [
+                "base",
+                "effect",
+                "damage"
+            ]
         },
-        "equipment":{
-            "templates":["base","effect"]
+        "equipment": {
+            "templates": [
+                "base",
+                "effect",
+                "damage"
+            ]
         },
-        "ability":{
-            "templates":["ability","effect"]
+        "ability": {
+            "templates": [
+                "ability",
+                "effect",
+                "damage"
+            ]
         },
-        "class":{
-            "templates":["class"]
+        "class": {
+            "templates": [
+                "class"
+            ]
         }
     }
 }

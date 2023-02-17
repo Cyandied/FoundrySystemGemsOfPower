@@ -1,8 +1,8 @@
 import {gopActor} from "./document/actor.mjs";
-// import {gopItem} from "./document/item.mjs";
+import {gopItem} from "./document/item.mjs";
 
 import {gopActorSheet} from "./sheets/actor-sheet.mjs";
-// import {gopItemSheet} from "./sheets/item-sheet.mjs";
+import {gopItemSheet} from "./sheets/item-sheet.mjs";
 
 import {handlebarsTemplates} from "./help/templates.mjs";
 import {GOP} from "./help/config.mjs";
@@ -10,8 +10,7 @@ import {GOP} from "./help/config.mjs";
 Hooks.once('init',async function(){
     game.gop = {
         gopActor,
-        // gopItem,
-        // rollItemMacro
+        gopItem
     };
 
     console.log("gop start")
@@ -24,12 +23,26 @@ Hooks.once('init',async function(){
     };
 
     CONFIG.Actor.documentClass = gopActor;
-    // CONFIG.Item.documentClass = gopItem;
+    CONFIG.Item.documentClass = gopItem;
 
     Actors.unregisterSheet("core", ActorSheet);
     Actors.registerSheet("gop", gopActorSheet, { makeDefault: true });
-    // Items.unregisterSheet("core", ItemSheet);
-    // Items.registerSheet("gop", gopItemSheet, { makeDefault: true });
+    Items.unregisterSheet("core", ItemSheet);
+    Items.registerSheet("gop", gopItemSheet, { makeDefault: true });
+
+    Handlebars.registerHelper('ifCond', function(v1, v2, options) {
+        if(v1 === v2) {
+          return options.fn(this);
+        }
+        return options.inverse(this);
+      });
+
+      Handlebars.registerHelper('ifIn', function(v1, v2, options) {
+        if(v1 in v2) {
+          return true;
+        }
+        return false;
+      });
 
     return handlebarsTemplates();
 });

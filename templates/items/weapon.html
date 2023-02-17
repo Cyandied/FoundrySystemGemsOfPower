@@ -1,0 +1,60 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="header">
+
+        <img class="item-img" src="{{item.img}}" data-edit="img" title="{{item.name}}">
+
+        <div>
+            <h1><input type="text" name="name" value="{{item.name}}" data-dtype="text"></h1>
+            <div class="resourcesItem">
+                <div class="resources-content">
+                    <label for="value">Value</label> <input type="text" name="system.value" id="value"
+                        value="{{system.value}}" data-dtype="number"> <span>G</span>
+                </div>
+                <div class="resources-content">
+                    <label for="amount">Amount</label> <input type="text" name="system.quantity" id="amount"
+                        value="{{system.quantity}}" data-dtype="number">
+                </div>
+                <div class="resources-content">
+                    <label for="charge">Charges</label> <input type="text" name="system.charges" id="charge"
+                        value="{{system.charges}}" data-dtype="number">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <body>
+        <label for="description">Description:</label>
+        <textarea rows="5" class="description" type="text" name="system.description" value="{{system.description}}"
+            data-dtype="text" id="description">{{system.description}}</textarea>
+        <section class="under">
+            <div class="roll-options">
+                <div class="checks-roll-options">
+                    <label for="system.LimitedCharge">Limited&nbspcharges?</label>
+                    <input type="checkbox" name="system.LimitedCharge" value="true" {{#if system.LimitedCharge}} checked
+                        {{/if}}>
+
+                    <label for="system.isMagical">Magical?</label>
+                    <input type="checkbox" name="system.isMagical" value="true" {{#if system.isMagical}} checked
+                        {{/if}}>
+
+                    <label for="system.isCapable">Capable?</label>
+                    <input type="checkbox" name="system.isCapable" value="true" {{#if system.isCapable}} checked
+                        {{/if}}>
+                </div>
+                <h2>Damage or healing type</h2>
+                <div class="skills">
+                    {{#each system.damageType as |type key|}}
+                    <label for="system.damageType.{{key}}.hasType">{{type.label}}:</label>
+                    <div class="skill">
+                        <input type="checkbox" name="system.damageType.{{key}}.hasType" value="true" {{#if
+                            type.hasType}} checked {{/if}}>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+            <div>
+
+            </div>
+        </section>
+    </body>
+</form>

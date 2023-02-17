@@ -75,13 +75,15 @@ export class gopActorSheet extends ActorSheet {
    */
   _prepareItems(context) {
     // Initialize containers.
-    const gems = []
+    const gem = []
     const equipment = []
-    const weapons = []
-    const tradeGoods = []
-    const consumables = []
-    const effectItems = []
+    const weapon = []
+    const tradeGood = []
+    const consumable = []
+    const effectItem = []
     const abilities = [];
+    const tempClass = []
+    const race = []
     const spells = {
       0: [],
       1: [],
@@ -102,27 +104,39 @@ export class gopActorSheet extends ActorSheet {
     for (let i of context.items) {
       i.img = i.img || DEFAULT_TOKEN;
 
-        allocate("gem",gems,i)
+        allocate("gem",gem,i)
         allocate("equipment",equipment,i)
-        allocate("weapon",weapons,i)
-        allocate("tradeGood",tradeGoods,i)
-        allocate("consumable",consumables,i)
-        allocate("effectItem",effectItems,i)
+        allocate("weapon",weapon,i)
+        allocate("tradeGood",tradeGood,i)
+        allocate("consumable",consumable,i)
+        allocate("effectItem",effectItem,i)
+        allocate("class",tempClass,i)
+        allocate("race", race, i)
 
       // Append to features.
       if (i.type === 'ability') {
         abilities.push(i);
+        i.img = "icons/svg/aura.svg"
       }
       // Append to spells.
       else if (i.type === 'spell') {
-        if (i.system.spell.minLevel != undefined) {
-          spells[i.system.spell.minLevel].push(i);
+        if (i.system.minLevel != undefined) {
+          spells[i.system.minLevel].push(i);
         }
       }
     }
 
     // Assign and return
-    context.items = [gems,equipment,weapons,tradeGoods,consumables,effectItems];
+    context.gem = gem
+    context.equipment = equipment
+    context.weapon = weapon
+    context.tradeGood = tradeGood
+    context.consumable = consumable
+    context.effectItem = effectItem
+
+    context.race = race
+    context.class = tempClass
+
     context.abilities = abilities;
     context.spells = spells;
   }

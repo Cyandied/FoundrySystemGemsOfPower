@@ -1,1 +1,29 @@
-<p>Im the action set tab!</p>
+<form>
+    <section>
+        <div class = "actionSetRow1">
+            <a class = "resources-devider rollable">
+                Primary
+            </a>
+
+            <a class = "resources-devider rollable">
+                Secondary
+            </a>
+
+            <a class = "resources-devider rollable">
+                Items
+            </a>
+
+            <div>
+                <div class = "actionImage" data-item-id = "item.id">
+                    <a class = "rollable" data-roll-type = "item">
+                        <img src="{{item.img}}" title = "{{item.name}}" width="100px" height="100px">
+                    </a>
+                </div>
+                <h4>{{item.name}}</h4>
+                <div class="item-formula item-prop">{{item.system.formula}}</div>
+            </div>
+
+
+        </div>
+    </section>
+</form>
