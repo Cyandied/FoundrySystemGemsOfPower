@@ -40,7 +40,7 @@ export class gopItem extends Item {
         ChatMessage.create({
           speaker: speaker,
           rollMode: rollMode,
-          flavor: label,
+          flavor: item.system.flair,
           content: item.system.description ?? ''
         });
       }
@@ -56,7 +56,8 @@ export class gopItem extends Item {
         roll.toMessage({
           speaker: speaker,
           rollMode: rollMode,
-          flavor: label,
+          flavor: item.system.flair,
+          content: item.system.description
         });
         return roll;
       }

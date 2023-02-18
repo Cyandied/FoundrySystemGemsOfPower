@@ -16,7 +16,7 @@
                 }
             },
             "actionSetPlayer": {
-                "relavantActionSet": {
+                "slot1": {
                     "weapons": {
                         "primary": [],
                         "secondary": []
@@ -41,7 +41,7 @@
                 }
             },
             "actionSetNpc": {
-                "relavantActionSet": {
+                "actionSet": {
                     "actions": {
                         "1": [],
                         "2": []
@@ -49,8 +49,8 @@
                 }
             },
             "player": {
-                "race": "",
-                "class": "",
+                "race": [],
+                "class": [],
                 "initiativeFromClass": 0,
                 "level": {
                     "value": 1
@@ -131,6 +131,7 @@
         ],
         "templates": {
             "damage": {
+                "hasTypeList":[],
                 "damageType": {
                     "blunt": {
                         "hasType": false,
@@ -160,11 +161,11 @@
                         "hasType": false,
                         "label": "Wasting"
                     },
-                    "permanant health": {
+                    "permanantHealth": {
                         "hasType": false,
                         "label": "Permanant health"
                     },
-                    "temporary health": {
+                    "temporaryHealth": {
                         "hasType": false,
                         "label": "Temprary health"
                     }
@@ -173,7 +174,8 @@
             "base": {
                 "description": "",
                 "value": 0,
-                "quantity": 0
+                "quantity": 0,
+                "flair":""
             },
             "spell": {
                 "name": "",
@@ -205,7 +207,8 @@
             "weapon": {
                 "formula": "",
                 "isMagical": false,
-                "isCapable": false
+                "isCapable": false,
+                "flair":""
             },
             "consumable": {
                 "isFood": false
@@ -224,6 +227,9 @@
             "ability": {
                 "description": "",
                 "fromClass": ""
+            },
+            "race":{
+                "description":""
             }
         },
         "spell": {
@@ -283,6 +289,11 @@
         "class": {
             "templates": [
                 "class"
+            ]
+        },
+        "race": {
+            "templates":[
+                "race"
             ]
         }
     }

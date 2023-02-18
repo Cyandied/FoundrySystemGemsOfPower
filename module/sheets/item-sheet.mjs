@@ -5,7 +5,7 @@ export class gopItemSheet extends ItemSheet {
       return mergeObject(super.defaultOptions, {
         classes: ["gop", "sheet", "item"],
         width: 520,
-        height: 480,
+        height: 600,
         tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
       });
     }

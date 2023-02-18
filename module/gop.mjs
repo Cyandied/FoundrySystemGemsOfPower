@@ -37,13 +37,6 @@ Hooks.once('init',async function(){
         return options.inverse(this);
       });
 
-      Handlebars.registerHelper('ifIn', function(v1, v2, options) {
-        if(v1 in v2) {
-          return true;
-        }
-        return false;
-      });
-
     return handlebarsTemplates();
 });
 
