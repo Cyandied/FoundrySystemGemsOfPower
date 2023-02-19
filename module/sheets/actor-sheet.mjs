@@ -1,4 +1,4 @@
-import {onManageActiveEffect, prepareActiveEffectCategories} from "../help/effects.mjs";
+import { onManageActiveEffect, prepareActiveEffectCategories } from "../help/effects.mjs";
 
 
 export class gopActorSheet extends ActorSheet {
@@ -84,6 +84,7 @@ export class gopActorSheet extends ActorSheet {
     const abilities = [];
     const tempClass = []
     const race = []
+    const items = {}
     const spells = {
       0: [],
       1: [],
@@ -93,25 +94,26 @@ export class gopActorSheet extends ActorSheet {
       5: []
     };
 
-    function allocate(type, destination,i){
-        if(i.type === type){
-            destination.push(i)
-            return
-        }
+    function allocate(type, destination, i) {
+      if (i.type === type) {
+        destination.push(i)
+        items[i._id] = i
+        return
+      }
     }
 
     // Iterate through items, allocating to containers
     for (let i of context.items) {
       i.img = i.img || DEFAULT_TOKEN;
 
-        allocate("gem",gem,i)
-        allocate("equipment",equipment,i)
-        allocate("weapon",weapon,i)
-        allocate("tradeGood",tradeGood,i)
-        allocate("consumable",consumable,i)
-        allocate("effectItem",effectItem,i)
-        allocate("class",tempClass,i)
-        allocate("race", race, i)
+      allocate("gem", gem, i)
+      allocate("equipment", equipment, i)
+      allocate("weapon", weapon, i)
+      allocate("tradeGood", tradeGood, i)
+      allocate("consumable", consumable, i)
+      allocate("effectItem", effectItem, i)
+      allocate("class", tempClass, i)
+      allocate("race", race, i)
 
       // Append to features.
       if (i.type === 'ability') {
@@ -127,13 +129,34 @@ export class gopActorSheet extends ActorSheet {
     }
 
     // Assign and return
-    context.gem = gem
-    context.equipment = equipment
-    context.weapon = weapon
-    context.tradeGood = tradeGood
-    context.consumable = consumable
-    context.effectItem = effectItem
-
+    context.items = items
+    
+    context.itemsOwned = [
+      {
+        "itemList": gem,
+        "label":"Gems"
+      },
+      {
+        "itemList": equipment,
+        "label":"Equipment"
+      },
+      {
+        "itemList": weapon,
+        "label":"Weapons"
+      },
+      {
+        "itemList": tradeGood,
+        "label":"Trade Goods"
+      },
+      {
+        "itemList": consumable,
+        "label":"Consumables"
+      },
+      {
+        "itemList": effectItem,
+        "label":"Effect items"
+      }
+    ]
     context.race = race
     context.class = tempClass
 
@@ -210,7 +233,7 @@ export class gopActorSheet extends ActorSheet {
     delete itemData.system["type"];
 
     // Finally, create the item!
-    return await Item.create(itemData, {parent: this.actor});
+    return await Item.create(itemData, { parent: this.actor });
   }
 
   /**
@@ -234,7 +257,7 @@ export class gopActorSheet extends ActorSheet {
 
     // Handle rolls that supply the formula directly.
     if (dataset.roll) {
-      let label = dataset.label ? `[ability] ${dataset.label}` : '';
+      let label = dataset.label ? `[${dataset.from}] ${dataset.label}` : '';
       let roll = new Roll(dataset.roll, this.actor.getRollData());
       roll.toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),

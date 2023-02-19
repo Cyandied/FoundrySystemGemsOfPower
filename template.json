@@ -16,35 +16,35 @@
                 }
             },
             "actionSetPlayer": {
-                "slot1": {
+                "actionSet": {
                     "weapons": {
                         "primary": [],
                         "secondary": []
                     },
                     "items": {
-                        "1": [],
-                        "2": [],
-                        "3": []
+                        "slot1": [],
+                        "slot2": [],
+                        "slot3": []
                     },
                     "abilities": {
-                        "1": [],
-                        "2": [],
-                        "3": []
+                        "slot1": [],
+                        "slot2": [],
+                        "slot3": []
                     },
                     "spells": {
-                        "1": [],
-                        "2": [],
-                        "3": [],
-                        "4": [],
-                        "5": []
+                        "slot1": [],
+                        "slot2": [],
+                        "slot3": [],
+                        "slot4": [],
+                        "slot5": []
                     }
                 }
             },
             "actionSetNpc": {
                 "actionSet": {
                     "actions": {
-                        "1": [],
-                        "2": []
+                        "slot1": [],
+                        "slot2": []
                     }
                 }
             },

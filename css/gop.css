@@ -129,6 +129,18 @@ input[type = checkbox] {
     flex-direction: column;
 }
 
+.flexrow {
+  display: flex;
+}
+
+.actionSet {
+  display: flex;
+}
+
+.items-list input {
+  margin: 0 10px 0;
+}
+
 .checks-roll-options {
     display: flex;
 }

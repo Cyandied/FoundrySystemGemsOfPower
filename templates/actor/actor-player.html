@@ -6,24 +6,24 @@
                 <input name="name" type="text" value="{{actor.name}}" placeholder="name">
             </h1>
             <div class="resources">
-                <label for="system.heath.value">Race:</label>
+                <label for="system.health.value">Race:</label>
                 <div class="resources-content">
                     <input type="text" name="system.race" value="{{system.race}}" data-type="text">
                 </div>
 
-                <label for="system.heath.value">Class:</label>
+                <label for="system.health.value">Class:</label>
                 <div class="resources-content">
                     <input type="text" name="system.class" value="{{system.class}}" data-type="text">
                 </div>
 
-                <label for="system.heath.value">Health:</label>
+                <label for="system.health.value">Health:</label>
                 <div class="resources-content">
-                    <input type="text" name="system.heath.value" value="{{system.health.value}}" data-type="number">
+                    <input type="text" name="system.health.value" value="{{system.health.value}}" data-type="number">
                     <span class="resources-devider"> / </span>
-                    <input type="text" name="system.heath.max" value="{{system.health.max}}" data-type="number">
+                    <input type="text" name="system.health.max" value="{{system.health.max}}" data-type="number">
                 </div>
 
-                <label for="system.heath.value">Level:</label>
+                <label for="system.health.value">Level:</label>
                 <div class="resources-content">
                     <input type="text" name="system.level.value" value="{{system.level.value}}" data-type="number">
                 </div>
@@ -34,7 +34,7 @@
             <div class="skills">
                 {{#each system.skills as |skill key|}}
                 <label for="system.skills.{{key}}.hasSkill" class="rollable"
-                    data-roll="d20+@skills.{{key}}.mod">{{skill.label}}:</label>
+                    data-roll="d20+@skills.{{key}}.mod" data-from = "skill" data-label = "{{skill.label}}">{{skill.label}}:</label>
                 <div class="skill">
                     <input type="checkbox" name="system.skills.{{key}}.hasSkill" value="true" {{#if skill.hasSkill}}
                         checked {{/if}}>
