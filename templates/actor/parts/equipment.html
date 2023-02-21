@@ -1,0 +1,13 @@
+<header>
+    {{#with system.equipment.head as |find|}}
+    {{#with (lookup ../items [find])~}}
+    <h3>{{this.name}}</h3>
+    <div class="actionImage" data-item-id="item.id">
+        <a class="rollable" data-roll="{{this.system.formula}}" data-label="{{this.system.flair}}"
+            data-from="{{this.type}}">
+            <img src="{{this.img}}" title="{{this.name}}" width="100px" height="100px">
+        </a>
+    </div>
+    {{/with}}
+    {{/with}}
+</header>

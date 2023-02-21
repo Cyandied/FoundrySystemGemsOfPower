@@ -1,24 +1,13 @@
 <form>
     <section>
         <div class="actionSetRow1">
-            <a class="resources-devider rollable">
-                Primary
-            </a>
-
-            <a class="resources-devider rollable">
-                Secondary
-            </a>
-
-            <a class="resources-devider rollable">
-                Items
-            </a>
-
             <div>
+                <h1>Primary</h1>
                 {{#with system.actionSet.weapons.primary as |find|}}
                 {{#with (lookup ../items [find])~}}
                 <h3>{{this.name}}</h3>
                 <div class="actionImage" data-item-id="item.id">
-                    <a class="rollable" data-roll="{{this.system.formula}}" data-label="{{this.system.flair}}"
+                    <a class="rollable" data-roll= {{#if this.system.isCapable}} "{{this.system.formula}}" {{else}} "({{this.system.formula}}) * 1/2" {{/if}} data-label="{{this.system.flair}}"
                         data-from="{{this.type}}">
                         <img src="{{this.img}}" title="{{this.name}}" width="100px" height="100px">
                     </a>
@@ -27,12 +16,14 @@
                 {{/with}}
             </div>
 
-            <div>
+            <div class = "actionSetSecond">
+                <h1>Secondary</h1>
                 {{#with system.actionSet.weapons.secondary as |find|}}
                 {{#with (lookup ../items [find])~}}
                 <h3>{{this.name}}</h3>
                 <div class="actionImage" data-item-id="item.id">
-                    <a class="rollable" data-roll="{{this.system.formula}}" data-label="{{this.system.flair}}"
+
+                    <a class="rollable" data-roll= {{#if this.system.isCapable}} "{{this.system.formula}}" {{else}} "({{this.system.formula}}) * 1/2" {{/if}} data-label="{{this.system.flair}}"
                         data-from="{{this.type}}">
                         <img src="{{this.img}}" title="{{this.name}}" width="100px" height="100px">
                     </a>
@@ -40,7 +31,9 @@
                 {{/with}}
                 {{/with}}
             </div>
-            <div class="flexrow">
+            <div class = "actionSetItem">
+                <h1>Items</h1>
+                <section>
                 <div>
                     {{#with system.actionSet.items.slot1 as |find|}}
                     {{#with (lookup ../items [find])~}}
@@ -80,6 +73,7 @@
                     {{/with}}
                     {{/with}}
                 </div>
+                </section>
             </div>
 
 

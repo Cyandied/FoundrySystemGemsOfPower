@@ -13,6 +13,9 @@
                 },
                 "level": {
                     "value": 0
+                },
+                "endurance":{
+                    "value":0.4
                 }
             },
             "actionSetPlayer": {
@@ -54,6 +57,15 @@
                 "initiativeFromClass": 0,
                 "level": {
                     "value": 1
+                },
+                "equipped":{
+                    "head":[],
+                    "torso":[],
+                    "legs":[],
+                    "hands":[],
+                    "neck":[],
+                    "fingers":[],
+                    "feet":[]
                 },
                 "skills": {
                     "athletic": {
@@ -98,7 +110,10 @@
                 "personality": "",
                 "gender": "",
                 "apperance": "",
-                "background": ""
+                "background": "",
+                "age":"",
+                "nickname":"",
+                "notes":""
             }
         },
         "player": {

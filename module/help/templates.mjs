@@ -8,5 +8,6 @@ export const handlebarsTemplates = async function() {
       "systems/gemsofpower/templates/actor/parts/biography.html",
       "systems/gemsofpower/templates/actor/parts/items.html",
       "systems/gemsofpower/templates/actor/parts/spells.html",
+      "systems/gemsofpower/templates/actor/parts/equipment.html",
     ]);
   };

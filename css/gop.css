@@ -4,7 +4,18 @@
     visibility: hidden;
 }
 
+.namGen {
+  display: flex;
+  align-items: center;
+}
 
+.namGen .bioInput {
+  margin: 10px;
+}
+
+.namGen h2 {
+  margin-right: 15px;
+}
 
 .rollable:hover, .rollable:focus {
     color: #000;
@@ -85,15 +96,28 @@ label {
   }
 
 .actionSetRow1 {
-    display: grid;
-    grid-column: span 3/span 2;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    display: flex;
+    align-content:stretch;
+}
+
+.actionSetRow1 h1 h3{
+  margin: 0 20px 0;
 }
 
 .actionImage {
     width: 100px;
-    height: 100 px;
+    height: 100px;
     background-color: rgba(124, 128, 124, 0.2);
+    margin: 0 20px 0;
+}
+
+.actionSetItem, .actionSetSecond {
+  margin-left: 5%;
+}
+
+.actionSetItem section {
+  display: flex;
+  align-content: space-around;
 }
 
 .item-img {

@@ -1,1 +1,31 @@
-<p>Im the biography tab!</p>
+ <header>
+    <div class = "namGen">
+        <h2>{{actor.name}}</h2>
+
+        <label for="system.gender">Gender</label>
+        <input class = "bioInput", type="text" name="system.gender" value="{{system.gender}}">
+
+        <label for="system.age">Age</label>
+        <input class = "bioInput", type="text" name="system.age" value="{{system.age}}">
+
+        <label for="system.nickname">Nickname</label>
+        <input class = "bioInput", type="text" name="system.nickname" value="{{system.nickname}}">
+    </div>
+    
+
+    <label for="system.apperance">Apperance</label>
+    <textarea class = "bioInput", rows="5" class="description" type="text" name="system.apperance" value="{{system.apperance}}"
+    data-dtype="text">{{system.apperance}}</textarea>
+
+    <label for="system.personality">Personality</label>
+    <textarea class = "bioInput", rows="5" class="description" type="text" name="system.personality" value="{{system.personality}}"
+    data-dtype="text">{{system.personality}}</textarea>
+
+    <label for="system.background">Background</label>
+    <textarea class = "bioInput", rows="5" class="description" type="text" name="system.background" value="{{system.background}}"
+    data-dtype="text">{{system.background}}</textarea>
+
+    <label for="system.notes">Notes</label>
+    <textarea class = "bioInput", rows="5" class="description" type="text" name="system.notes" value="{{system.notes}}"
+    data-dtype="text">{{system.notes}}</textarea>
+    </header>

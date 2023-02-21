@@ -2,7 +2,7 @@
     "id": "gemsofpower",
     "title": "Gems of Power System V2",
     "description": "The system for Gems of Power made for FoundryVTT!",
-    "version": "0.234",
+    "version": "0.234345",
     "compatibility": {
       "minimum": 10
     },
