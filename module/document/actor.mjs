@@ -87,10 +87,6 @@ export class gopActor extends Actor {
           data[k] = foundry.utils.deepClone(v);
         }
       }
-      if (data.initiativeFromClass) {
-        [k,v] = Object.entries(data.initiativeFromClass)
-        data[k] = foundry.utils.deepClone(v)
-      }
     }
   
     /**

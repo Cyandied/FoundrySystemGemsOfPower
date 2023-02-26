@@ -3,76 +3,118 @@
         <div class="actionSetRow1">
             <div>
                 <h1>Primary</h1>
+                {{#if system.actionSet.weapons.primary}}
                 {{#with system.actionSet.weapons.primary as |find|}}
                 {{#with (lookup ../items [find])~}}
                 <h3>{{this.name}}</h3>
                 <div class="actionImage" data-item-id="item.id">
-                    <a class="rollable" data-roll= {{#if this.system.isCapable}} "{{this.system.formula}}" {{else}} "({{this.system.formula}}) * 1/2" {{/if}} data-label="{{this.system.flair}}"
+                    <a class="rollable" data-roll={{#if this.system.isCapable}} "{{this.system.formula}}"
+                        {{else}} "({{this.system.formula}}) * 1/2" {{/if}} data-label="{{this.system.flair}}<br>{{this.system.description}}"
                         data-from="{{this.type}}">
                         <img src="{{this.img}}" title="{{this.name}}" width="100px" height="100px">
                     </a>
                 </div>
                 {{/with}}
                 {{/with}}
+
+                {{else}}
+                <div>
+                    <h3>Unassinged</h3>
+                    <img class="actionImage" src="icons/svg/circle.svg" width="100px" height="100px">
+                </div>
+                {{/if}}
             </div>
 
-            <div class = "actionSetSecond">
+            <div class="actionSetSecond">
                 <h1>Secondary</h1>
+                {{#if system.actionSet.weapons.secondary}}
                 {{#with system.actionSet.weapons.secondary as |find|}}
                 {{#with (lookup ../items [find])~}}
                 <h3>{{this.name}}</h3>
                 <div class="actionImage" data-item-id="item.id">
 
-                    <a class="rollable" data-roll= {{#if this.system.isCapable}} "{{this.system.formula}}" {{else}} "({{this.system.formula}}) * 1/2" {{/if}} data-label="{{this.system.flair}}"
+                    <a class="rollable" data-roll={{#if this.system.isCapable}} "{{this.system.formula}}"
+                        {{else}} "({{this.system.formula}}) * 1/2" {{/if}} data-label="{{this.system.flair}}"
                         data-from="{{this.type}}">
                         <img src="{{this.img}}" title="{{this.name}}" width="100px" height="100px">
                     </a>
                 </div>
                 {{/with}}
                 {{/with}}
+
+                {{else}}
+                <div>
+                    <h3>Unassinged</h3>
+                    <img class="actionImage" src="icons/svg/circle.svg" width="100px" height="100px">
+                </div>
+                {{/if}}
             </div>
-            <div class = "actionSetItem">
+            <div class="actionSetItem">
                 <h1>Items</h1>
                 <section>
-                <div>
-                    {{#with system.actionSet.items.slot1 as |find|}}
-                    {{#with (lookup ../items [find])~}}
-                    <h3>{{this.name}}</h3>
-                    <div class="actionImage" data-item-id="item.id">
-                        <a class="rollable" data-roll="{{this.system.formula}}" data-label="{{this.system.flair}}"
-                            data-from="{{this.type}}">
-                            <img src="{{this.img}}" title="{{this.name}}" width="100px" height="100px">
-                        </a>
+                    <div>
+                        {{#if system.actionSet.items.slot1}}
+                        {{#with system.actionSet.items.slot1 as |find|}}
+                        {{#with (lookup ../items [find])~}}
+                        <h3>{{this.name}}</h3>
+                        <div class="actionImage" data-item-id="item.id">
+                            <a class="rollable" data-roll="{{this.system.formula}}" data-label="{{this.system.flair}}"
+                                data-from="{{this.type}}">
+                                <img src="{{this.img}}" title="{{this.name}}" width="100px" height="100px">
+                            </a>
+                        </div>
+                        {{/with}}
+                        {{/with}}
+
+                        {{else}}
+                        <div>
+                            <h3>Unassinged</h3>
+                            <img class="actionImage" src="icons/svg/circle.svg" width="100px" height="100px">
+                        </div>
+                        {{/if}}
                     </div>
-                    {{/with}}
-                    {{/with}}
-                </div>
-                <div>
-                    {{#with system.actionSet.items.slot2 as |find|}}
-                    {{#with (lookup ../items [find])~}}
-                    <h3>{{this.name}}</h3>
-                    <div class="actionImage" data-item-id="item.id">
-                        <a class="rollable" data-roll="{{this.system.formula}}" data-label="{{this.system.flair}}"
-                            data-from="{{this.type}}">
-                            <img src="{{this.img}}" title="{{this.name}}" width="100px" height="100px">
-                        </a>
+                    <div>
+                        {{#if system.actionSet.items.slot2}}
+                        {{#with system.actionSet.items.slot2 as |find|}}
+                        {{#with (lookup ../items [find])~}}
+                        <h3>{{this.name}}</h3>
+                        <div class="actionImage" data-item-id="item.id">
+                            <a class="rollable" data-roll="{{this.system.formula}}" data-label="{{this.system.flair}}"
+                                data-from="{{this.type}}">
+                                <img src="{{this.img}}" title="{{this.name}}" width="100px" height="100px">
+                            </a>
+                        </div>
+                        {{/with}}
+                        {{/with}}
+
+                        {{else}}
+                        <div>
+                            <h3>Unassinged</h3>
+                            <img class="actionImage" src="icons/svg/circle.svg" width="100px" height="100px">
+                        </div>
+                        {{/if}}
                     </div>
-                    {{/with}}
-                    {{/with}}
-                </div>
-                <div>
-                    {{#with system.actionSet.items.slot3 as |find|}}
-                    {{#with (lookup ../items [find])~}}
-                    <h3>{{this.name}}</h3>
-                    <div class="actionImage" data-item-id="item.id">
-                        <a class="rollable" data-roll="{{this.system.formula}}" data-label="{{this.system.flair}}"
-                            data-from="{{this.type}}">
-                            <img src="{{this.img}}" title="{{this.name}}" width="100px" height="100px">
-                        </a>
+                    <div>
+                        {{#if system.actionSet.items.slot3}}
+                        {{#with system.actionSet.items.slot3 as |find|}}
+                        {{#with (lookup ../items [find])~}}
+                        <h3>{{this.name}}</h3>
+                        <div class="actionImage" data-item-id="item.id">
+                            <a class="rollable" data-roll="{{this.system.formula}}" data-label="{{this.system.flair}}"
+                                data-from="{{this.type}}">
+                                <img src="{{this.img}}" title="{{this.name}}" width="100px" height="100px">
+                            </a>
+                        </div>
+                        {{/with}}
+                        {{/with}}
+
+                        {{else}}
+                        <div>
+                            <h3>Unassinged</h3>
+                            <img class="actionImage" src="icons/svg/circle.svg" width="100px" height="100px">
+                        </div>
+                        {{/if}}
                     </div>
-                    {{/with}}
-                    {{/with}}
-                </div>
                 </section>
             </div>
 

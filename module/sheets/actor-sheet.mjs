@@ -48,7 +48,6 @@ export class gopActorSheet extends ActorSheet {
 
     // Prepare active effects
     context.effects = prepareActiveEffectCategories(this.actor.effects);
-
     return context;
   }
 
@@ -85,13 +84,40 @@ export class gopActorSheet extends ActorSheet {
     const tempClass = []
     const race = []
     const items = {}
-    const spells = {
-      0: [],
-      1: [],
-      2: [],
-      3: [],
-      4: [],
-      5: []
+    const spells = {}
+    const spellsOwned = {
+      "castersBasics": {
+        "spellList":[],
+        "label":"Casters Basics"
+      },
+      "lvl1": {
+        "spellList":[],
+        "label":"Level 1"
+      },
+      "lvl2": {
+        "spellList":[],
+        "label":"Level 2"
+      },
+      "lvl3": {
+        "spellList":[],
+        "label":"Level 3"
+      },
+      "lvl4": {
+        "spellList":[],
+        "label":"Level 4"
+      },
+      "lvl5": {
+        "spellList":[],
+        "label":"Level 5"
+      },
+      "lvl6": {
+        "spellList":[],
+        "label":"Level 6"
+      },
+      "lvl7": {
+        "spellList":[],
+        "label":"Level 7"
+      }
     };
 
     function allocate(type, destination, i) {
@@ -123,13 +149,18 @@ export class gopActorSheet extends ActorSheet {
       // Append to spells.
       else if (i.type === 'spell') {
         if (i.system.minLevel != undefined) {
-          spells[i.system.minLevel].push(i);
+          spells[i._id] = i
+          if(i.system.minLevel == 0){
+            spellsOwned["castersBasics"].push(i)
+          }
+          else{spellsOwned[`lvl${i.system.minLevel}`]["spellList"].push(i)}
         }
       }
     }
 
     // Assign and return
     context.items = items
+    context.spellsOwned = spellsOwned
     
     context.itemsOwned = [
       {

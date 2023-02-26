@@ -18,6 +18,32 @@
           <h4>{{item.name}}</h4>
         </div>
 
+        {{#ifCond item.type "equipment"}}
+        <div class = "actionSet">
+          <label for="head">Head</label>
+          <input type="radio" name="system.equipped.head" id="head" value= {{item._id}} {{#ifCond item._id ../../system.equipped.head}} checked {{/ifCond}}>
+
+          <label for="body">Body</label>
+          <input type="radio" name="system.equipped.body" id="body" value= {{item._id}} {{#ifCond item._id ../../system.equipped.body}} checked {{/ifCond}}>
+
+          <label for="legs">Legs</label>
+          <input type="radio" name="system.equipped.legs" id="legs" value= {{item._id}} {{#ifCond item._id ../../system.equipped.legs}} checked {{/ifCond}}>
+
+          <label for="feet">Feet</label>
+          <input type="radio" name="system.equipped.feet" id="feet" value= {{item._id}} {{#ifCond item._id ../../system.equipped.feet}} checked {{/ifCond}}>
+          
+          <label for="fingers">Fingers</label>
+          <input type="radio" name="system.equipped.fingers" id="fingers" value= {{item._id}} {{#ifCond item._id ../../system.equipped.fingers}} checked {{/ifCond}}>
+          
+          <label for="hands">Hands</label>
+          <input type="radio" name="system.equipped.hands" id="hands" value= {{item._id}} {{#ifCond item._id ../../system.equipped.hands}} checked {{/ifCond}}>
+          
+          <label for="neck">Neck</label>
+          <input type="radio" name="system.equipped.neck" id="neck" value= {{item._id}} {{#ifCond item._id ../../system.equipped.neck}} checked {{/ifCond}}>
+
+          </div>
+
+        {{else}}
         <div class = "actionSet">
         <label for="primary">Primary</label>
         <input type="radio" name="system.actionSet.weapons.primary" id="primary" value= {{item._id}} {{#ifCond item._id ../../system.actionSet.weapons.primary}} checked {{/ifCond}}>
@@ -28,8 +54,9 @@
         <input type="radio" name="system.actionSet.items.slot2"  value= {{item._id}} {{#ifCond item._id ../../system.actionSet.items.slot2}} checked {{/ifCond}}>
         <input type="radio" name="system.actionSet.items.slot3"  value= {{item._id}} {{#ifCond item._id ../../system.actionSet.items.slot3}} checked {{/ifCond}}>
         </div>
-
         <div class="item-formula item-prop">{{item.system.formula}}</div>
+        {{/ifCond}}
+
         <div class="item-controls">
           <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
           <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>

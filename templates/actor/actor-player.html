@@ -1,4 +1,23 @@
-<form>
+<div style = "display: none;" id = "myContext">
+    {{json system}}
+</div>
+<form id = "actorForm">
+    <script>
+        if(true){
+        const contextTemp = document.querySelector("#myContext")
+        const context = JSON.parse(contextTemp.innerHTML)
+        let health = parseFloat(context.health.value)
+        const form = document.querySelector("#actorForm")
+        form.addEventListener("change", (event) => {
+            const newHealth = document.querySelector("#healthCurrent").value
+            if (newHealth[0] == "+" || newHealth[0] =="-"){
+                health = health + parseFloat(newHealth)
+                document.querySelector("#healthCurrent").value = health
+            }
+            health = document.querySelector("#healthCurrent").value
+        })
+    }
+    </script>
     <header class="header">
         <img class="profileImg" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="300" width="200">
         <div class="info-fields">
@@ -6,26 +25,37 @@
                 <input name="name" type="text" value="{{actor.name}}" placeholder="name">
             </h1>
             <div class="resources">
-                <label for="system.health.value">Race:</label>
+                <label for="system.race">Race:</label>
                 <div class="resources-content">
                     <input type="text" name="system.race" value="{{system.race}}" data-type="text">
                 </div>
 
-                <label for="system.health.value">Class:</label>
+                <label for="system.class">Class:</label>
                 <div class="resources-content">
                     <input type="text" name="system.class" value="{{system.class}}" data-type="text">
                 </div>
 
                 <label for="system.health.value">Health:</label>
                 <div class="resources-content">
-                    <input type="text" name="system.health.value" value="{{system.health.value}}" data-type="number">
+                    <input type="text" name="system.health.value" value="{{system.health.value}}" data-type="number" id = "healthCurrent">
                     <span class="resources-devider"> / </span>
                     <input type="text" name="system.health.max" value="{{system.health.max}}" data-type="number">
                 </div>
 
-                <label for="system.health.value">Level:</label>
+                <label for="system.level.value">Level:</label>
                 <div class="resources-content">
                     <input type="text" name="system.level.value" value="{{system.level.value}}" data-type="number">
+                </div>
+
+                <label for="system.endurance.value">Evasiveness:</label>
+                <div class="resources-content">
+                    <input type="text" name="system.endurance.value" value="{{system.endurance.value}}" data-type="number">
+                </div>
+
+                <label for="system.initiativeFromClass" class="rollable"
+                data-roll="d20+{{system.initiativeFromClass}}" data-from = "Initiative" data-label = "{{actor.name}} has rolled initiative:">Initiative:</label>
+                <div class="resources-content">
+                    <input type="text" name="system.initiativeFromClass" value="{{system.initiativeFromClass}}" data-type="number">
                 </div>
             </div>
 
@@ -34,7 +64,7 @@
             <div class="skills">
                 {{#each system.skills as |skill key|}}
                 <label for="system.skills.{{key}}.hasSkill" class="rollable"
-                    data-roll="d20+@skills.{{key}}.mod" data-from = "skill" data-label = "{{skill.label}}">{{skill.label}}:</label>
+                    data-roll="d20+@skills.{{key}}.mod" data-from = "skill" data-label = "{{../actor.name}} has rolled a {{skill.label}} check:" data-content = "Hello!">{{skill.label}}:</label>
                 <div class="skill">
                     <input type="checkbox" name="system.skills.{{key}}.hasSkill" value="true" {{#if skill.hasSkill}}
                         checked {{/if}}>
@@ -77,6 +107,10 @@
 
             <div class="tab biography" data-group="primary" data-tab="biography">
                 {{> "systems/gemsofpower/templates/actor/parts/biography.html"}}
+            </div>
+
+            <div class="tab equipment" data-group="primary" data-tab="equipment">
+                {{> "systems/gemsofpower/templates/actor/parts/equipment.html"}}
             </div>
 
         </section>

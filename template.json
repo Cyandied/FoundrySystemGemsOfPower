@@ -215,7 +215,11 @@
                 "color": "",
                 "castLevelMax": 0,
                 "castLevelMin": 0,
-                "durability": "",
+                "durability": {
+                    "value":10,
+                    "min":0,
+                    "max":10
+                },
                 "canCastSchool": "",
                 "spellListID": []
             },

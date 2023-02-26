@@ -1,13 +1,168 @@
 <header>
-    {{#with system.equipment.head as |find|}}
-    {{#with (lookup ../items [find])~}}
-    <h3>{{this.name}}</h3>
-    <div class="actionImage" data-item-id="item.id">
-        <a class="rollable" data-roll="{{this.system.formula}}" data-label="{{this.system.flair}}"
-            data-from="{{this.type}}">
-            <img src="{{this.img}}" title="{{this.name}}" width="100px" height="100px">
-        </a>
+    <div class="equipmentTop">
+        <h1>Head</h1>
+        <h1>Body</h1>
+        <h1>Legs</h1>
+        <h1>Feet</h1>
+        {{#if system.equipped.head}}
+        {{#with system.equipped.head as |find|}}
+        {{#with (lookup ../items [find])~}}
+        <div>
+            <h3>{{this.name}}</h3>
+            <div class="actionImage" data-item-id="item.id">
+                <a class="rollable" data-roll="{{this.system.formula}}" data-label="{{this.system.flair}}"
+                    data-from="{{this.type}}">
+                    <img src="{{this.img}}" title="{{this.name}}" width="100px" height="100px">
+                </a>
+            </div>
+        </div>
+        {{/with}}
+        {{/with}}
+
+        {{else}}
+        <div>
+        <h3>Unassinged</h3>
+        <img class="actionImage" src="icons/svg/circle.svg" width="100px" height="100px">
+        </div>
+        {{/if}}
+
+        {{#if system.equipped.torso}}
+        {{#with system.equipped.torso as |find|}}
+        {{#with (lookup ../items [find])~}}
+        <div>
+            <h3>{{this.name}}</h3>
+            <div class="actionImage" data-item-id="item.id">
+                <a class="rollable" data-roll="{{this.system.formula}}" data-label="{{this.system.flair}}"
+                    data-from="{{this.type}}">
+                    <img src="{{this.img}}" title="{{this.name}}" width="100px" height="100px">
+                </a>
+            </div>
+        </div>
+        {{/with}}
+        {{/with}}
+
+        {{else}}
+        <div>
+        <h3>Unassinged</h3>
+        <img class="actionImage" src="icons/svg/circle.svg" width="100px" height="100px">
+        </div>
+        {{/if}}
+
+        {{#if system.equipped.legs}}
+        {{#with system.equipped.legs as |find|}}
+        {{#with (lookup ../items [find])~}}
+        <div>
+            <h3>{{this.name}}</h3>
+            <div class="actionImage" data-item-id="item.id">
+                <a class="rollable" data-roll="{{this.system.formula}}" data-label="{{this.system.flair}}"
+                    data-from="{{this.type}}">
+                    <img src="{{this.img}}" title="{{this.name}}" width="100px" height="100px">
+                </a>
+            </div>
+        </div>
+        {{/with}}
+        {{/with}}
+
+        {{else}}
+        <div>
+        <h3>Unassinged</h3>
+        <img class="actionImage" src="icons/svg/circle.svg" width="100px" height="100px">
+        </div>
+        {{/if}}
+
+        {{#if system.equipped.feet}}
+        {{#with system.equipped.feet as |find|}}
+        {{#with (lookup ../items [find])~}}
+        <div>
+            <h3>{{this.name}}</h3>
+            <div class="actionImage" data-item-id="item.id">
+                <a class="rollable" data-roll="{{this.system.formula}}" data-label="{{this.system.flair}}"
+                    data-from="{{this.type}}">
+                    <img src="{{this.img}}" title="{{this.name}}" width="100px" height="100px">
+                </a>
+            </div>
+        </div>
+        {{/with}}
+        {{/with}}
+
+        {{else}}
+        <div>
+        <h3>Unassinged</h3>
+        <img class="actionImage" src="icons/svg/circle.svg" width="100px" height="100px">
+        </div>
+        {{/if}}
     </div>
-    {{/with}}
-    {{/with}}
+
+    <div class="equipmentBottom">
+
+        <h1>Fingers</h1>
+        <h1>Hands</h1>
+        <h1>Neck</h1>
+        {{#if system.equipped.fingers}}
+        {{#with system.equipped.fingers as |find|}}
+        {{#with (lookup ../items [find])~}}
+        <div>
+            <h3>{{this.name}}</h3>
+            <div class="actionImage" data-item-id="item.id">
+                <a class="rollable" data-roll="{{this.system.formula}}" data-label="{{this.system.flair}}"
+                    data-from="{{this.type}}">
+                    <img src="{{this.img}}" title="{{this.name}}" width="100px" height="100px">
+                </a>
+            </div>
+        </div>
+        {{/with}}
+        {{/with}}
+
+        {{else}}
+        <div>
+        <h3>Unassinged</h3>
+        <img class="actionImage" src="icons/svg/circle.svg" width="100px" height="100px">
+        </div>
+        {{/if}}
+
+        {{#if system.equipped.hands}}
+        {{#with system.equipped.hands as |find|}}
+        {{#with (lookup ../items [find])~}}
+        <div>
+            <h3>{{this.name}}</h3>
+            <div class="actionImage" data-item-id="item.id">
+                <a class="rollable" data-roll="{{this.system.formula}}" data-label="{{this.system.flair}}"
+                    data-from="{{this.type}}">
+                    <img src="{{this.img}}" title="{{this.name}}" width="100px" height="100px">
+                </a>
+            </div>
+        </div>
+        {{/with}}
+        {{/with}}
+
+        {{else}}
+        <div>
+        <h3>Unassinged</h3>
+        <img class="actionImage" src="icons/svg/circle.svg" width="100px" height="100px">
+        </div>
+        {{/if}}
+
+        {{#if system.equipped.neck}}
+        {{#with system.equipped.neck as |find|}}
+        {{#with (lookup ../items [find])~}}
+        <div>
+            <h3>{{this.name}}</h3>
+            <div class="actionImage" data-item-id="item.id">
+                <a class="rollable" data-roll="{{this.system.formula}}" data-label="{{this.system.flair}}"
+                    data-from="{{this.type}}">
+                    <img src="{{this.img}}" title="{{this.name}}" width="100px" height="100px">
+                </a>
+            </div>
+        </div>
+        {{/with}}
+        {{/with}}
+
+        {{else}}
+        <div>
+        <h3>Unassinged</h3>
+        <img class="actionImage" src="icons/svg/circle.svg" width="100px" height="100px">
+        </div>
+        {{/if}}
+
+    </div>
 </header>

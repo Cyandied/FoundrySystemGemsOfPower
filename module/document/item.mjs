@@ -36,12 +36,11 @@ export class gopItem extends Item {
       const label = `[${item.type}] ${item.name}`;
   
       // If there's no roll data, send a chat message.
-      if (!this.system.formula) {
+      if (!this.system.formula) {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
         ChatMessage.create({
           speaker: speaker,
           rollMode: rollMode,
-          flavor: item.system.flair,
-          content: item.system.description ?? ''
+          flavor: label
         });
       }
       // Otherwise, create a roll and send a chat message from it.
@@ -53,11 +52,21 @@ export class gopItem extends Item {
         const roll = new Roll(rollData.item.formula, rollData);
         // If you need to store the value first, uncomment the next line.
         // let result = await roll.roll({async: true});
+
+        let damageTypes = ""
+
+        for(damageType in item.system.damagetype){
+          if(damageType.hasType){
+            damageTypes = damageTypes + String(damageType.label) + ","
+          }
+        }
+
+        console.log(damageTypes)
+
         roll.toMessage({
           speaker: speaker,
           rollMode: rollMode,
-          flavor: item.system.flair,
-          content: item.system.description
+          flavor: label
         });
         return roll;
       }
